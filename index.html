@@ -1,97 +1,1121 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Black Mood Studio — Sound Design</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<title>Black Mood Studio — Sound Design</title>
 
-    body {
-      background: #050505;
-      color: #ffffff;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+<style>
+:root{
+  --black:#050505;
+  --white:#f5f5f5;
+  --grey:#8c8c8c;
+  --darkgrey:#151515;
+  --red:#ed1c24;
+}
 
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 8vw;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    .small {
-      color: #e31b23;
-      font-size: 14px;
-      letter-spacing: 4px;
-      margin-bottom: 25px;
-    }
+html{
+  scroll-behavior:smooth;
+}
 
-    h1 {
-      font-size: clamp(70px, 13vw, 190px);
-      line-height: 0.8;
-      letter-spacing: -7px;
-    }
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:Arial,Helvetica,sans-serif;
+  overflow-x:hidden;
+}
 
-    .tagline {
-      margin-top: 40px;
-      font-size: clamp(20px, 3vw, 40px);
-      font-weight: 300;
-    }
+a{
+  color:inherit;
+  text-decoration:none;
+}
 
-    .services {
-      margin-top: 18px;
-      color: #999;
-      font-size: 15px;
-      letter-spacing: 2px;
-    }
+.section{
+  width:100%;
+  padding:110px 7vw;
+}
 
-    .bottom {
-      position: absolute;
-      bottom: 35px;
-      right: 40px;
-      font-size: 13px;
-      color: #777;
-    }
+.label{
+  color:var(--red);
+  text-transform:uppercase;
+  letter-spacing:4px;
+  font-size:12px;
+  font-weight:700;
+}
 
-    .red {
-      color: #e31b23;
-    }
-  </style>
+/* HEADER */
+
+header{
+  position:absolute;
+  z-index:20;
+  top:0;
+  left:0;
+  width:100%;
+  padding:32px 7vw;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.brand{
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:3px;
+}
+
+.language{
+  display:flex;
+  gap:9px;
+  align-items:center;
+  font-size:12px;
+  letter-spacing:2px;
+}
+
+.language button{
+  background:none;
+  border:0;
+  color:#666;
+  cursor:pointer;
+  font:inherit;
+  transition:.25s;
+}
+
+.language button.active,
+.language button:hover{
+  color:white;
+}
+
+.language span{
+  color:#333;
+}
+
+/* HERO */
+
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:120px 7vw 70px;
+  overflow:hidden;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  width:550px;
+  height:550px;
+  right:-180px;
+  top:20%;
+  border:1px solid rgba(237,28,36,.12);
+  border-radius:50%;
+  box-shadow:
+    0 0 120px rgba(237,28,36,.05),
+    inset 0 0 120px rgba(237,28,36,.04);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:1100px;
+}
+
+.hero h1{
+  margin-top:25px;
+  font-size:clamp(75px,13vw,190px);
+  line-height:.78;
+  letter-spacing:-8px;
+  text-transform:uppercase;
+}
+
+.hero h1 span{
+  display:block;
+  color:var(--red);
+}
+
+.tagline{
+  margin-top:52px;
+  font-size:clamp(25px,3vw,42px);
+  letter-spacing:-1px;
+}
+
+.hero-services{
+  margin-top:18px;
+  color:#777;
+  font-size:12px;
+  letter-spacing:3px;
+  line-height:2;
+}
+
+.hero-actions{
+  margin-top:42px;
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:52px;
+  padding:0 28px;
+  border:1px solid #333;
+  font-size:11px;
+  letter-spacing:2px;
+  font-weight:700;
+  transition:.3s ease;
+}
+
+.button.primary{
+  background:var(--red);
+  border-color:var(--red);
+}
+
+.button:hover{
+  background:white;
+  color:black;
+  border-color:white;
+}
+
+.hero-credit{
+  position:absolute;
+  right:7vw;
+  bottom:38px;
+  color:#777;
+  font-size:11px;
+}
+
+/* INTRO */
+
+.intro{
+  border-top:1px solid #171717;
+}
+
+.intro-grid{
+  display:grid;
+  grid-template-columns:1fr 1.5fr;
+  gap:90px;
+  align-items:start;
+}
+
+.intro h2{
+  margin-top:18px;
+  font-size:clamp(48px,7vw,100px);
+  line-height:.9;
+  letter-spacing:-5px;
+}
+
+.intro-text{
+  font-size:clamp(20px,2vw,30px);
+  line-height:1.45;
+  color:#cfcfcf;
+  max-width:760px;
+}
+
+/* WORKS */
+
+.works{
+  background:#090909;
+}
+
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:55px;
+  gap:30px;
+}
+
+.section-title h2{
+  margin-top:16px;
+  font-size:clamp(50px,8vw,110px);
+  line-height:.85;
+  letter-spacing:-6px;
+}
+
+.sound-on{
+  color:#777;
+  font-size:12px;
+  letter-spacing:3px;
+  padding-bottom:10px;
+}
+
+.work-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.work-card{
+  position:relative;
+  aspect-ratio:16/9;
+  background:#111;
+  overflow:hidden;
+  cursor:pointer;
+  border:1px solid #171717;
+}
+
+.work-card.large{
+  grid-column:span 2;
+}
+
+.work-bg{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 75% 30%,rgba(237,28,36,.18),transparent 38%),
+    linear-gradient(135deg,#1a1a1a,#080808);
+  transition:.5s;
+}
+
+.work-card:hover .work-bg{
+  transform:scale(1.03);
+  filter:brightness(1.25);
+}
+
+.work-number{
+  position:absolute;
+  top:25px;
+  right:27px;
+  color:#555;
+  font-size:11px;
+  letter-spacing:2px;
+}
+
+.work-info{
+  position:absolute;
+  left:28px;
+  bottom:27px;
+  right:28px;
+}
+
+.work-category{
+  color:var(--red);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+
+.work-info h3{
+  font-size:clamp(28px,4vw,52px);
+  line-height:1;
+  letter-spacing:-2px;
+}
+
+.work-note{
+  margin-top:12px;
+  color:#666;
+  font-size:10px;
+  max-width:650px;
+  line-height:1.5;
+}
+
+/* SERVICES */
+
+.services-grid{
+  margin-top:55px;
+  border-top:1px solid #242424;
+}
+
+.service{
+  padding:30px 0;
+  border-bottom:1px solid #242424;
+  display:grid;
+  grid-template-columns:70px 1fr 2fr;
+  gap:30px;
+  align-items:center;
+  transition:.25s;
+}
+
+.service:hover{
+  padding-left:15px;
+  color:white;
+}
+
+.service-number{
+  color:var(--red);
+  font-size:11px;
+  letter-spacing:2px;
+}
+
+.service h3{
+  font-size:clamp(24px,3vw,40px);
+  letter-spacing:-1px;
+}
+
+.service p{
+  color:#777;
+  line-height:1.6;
+  max-width:650px;
+}
+
+/* BEFORE AFTER */
+
+.before-after{
+  background:var(--red);
+  color:white;
+}
+
+.before-after .label{
+  color:white;
+  opacity:.7;
+}
+
+.ba-title{
+  margin-top:18px;
+  font-size:clamp(55px,10vw,150px);
+  line-height:.82;
+  letter-spacing:-7px;
+}
+
+.ba-box{
+  margin-top:60px;
+  min-height:350px;
+  background:#090909;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:50px;
+}
+
+.ba-box span{
+  font-size:12px;
+  letter-spacing:3px;
+  color:#777;
+}
+
+/* LORENZO */
+
+.lorenzo-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:90px;
+  align-items:center;
+}
+
+.portrait-placeholder{
+  min-height:580px;
+  background:
+    radial-gradient(circle at 40% 40%,rgba(237,28,36,.15),transparent 35%),
+    #0e0e0e;
+  border:1px solid #1b1b1b;
+}
+
+.lorenzo h2{
+  margin-top:20px;
+  font-size:clamp(55px,8vw,115px);
+  letter-spacing:-6px;
+  line-height:.83;
+}
+
+.role{
+  color:var(--red);
+  margin-top:25px;
+  font-size:12px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+.bio{
+  margin-top:35px;
+  max-width:620px;
+  color:#aaa;
+  font-size:18px;
+  line-height:1.7;
+}
+
+/* WORKFLOW */
+
+.workflow{
+  background:#090909;
+}
+
+.workflow-grid{
+  margin-top:60px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+
+.step{
+  padding:30px;
+  border-left:1px solid #242424;
+  min-height:280px;
+}
+
+.step:last-child{
+  border-right:1px solid #242424;
+}
+
+.step-number{
+  color:var(--red);
+  font-size:11px;
+  letter-spacing:2px;
+}
+
+.step h3{
+  margin-top:80px;
+  font-size:24px;
+}
+
+.step p{
+  margin-top:15px;
+  color:#777;
+  line-height:1.6;
+  font-size:14px;
+}
+
+/* CONTACT */
+
+.contact{
+  min-height:85vh;
+  display:flex;
+  align-items:center;
+  position:relative;
+}
+
+.contact h2{
+  margin-top:20px;
+  font-size:clamp(65px,11vw,155px);
+  line-height:.8;
+  letter-spacing:-8px;
+}
+
+.contact h2 span{
+  color:var(--red);
+  display:block;
+}
+
+.contact-text{
+  margin-top:40px;
+  color:#999;
+  font-size:18px;
+}
+
+.contact .button{
+  margin-top:35px;
+}
+
+footer{
+  border-top:1px solid #1c1c1c;
+  padding:30px 7vw;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  color:#555;
+  font-size:10px;
+  letter-spacing:2px;
+}
+
+/* ANIMATION */
+
+.reveal{
+  opacity:0;
+  transform:translateY(35px);
+  transition:.8s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:none;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  header{
+    padding:24px 6vw;
+  }
+
+  .brand{
+    font-size:10px;
+    letter-spacing:2px;
+  }
+
+  .hero{
+    padding-left:6vw;
+    padding-right:6vw;
+  }
+
+  .hero h1{
+    letter-spacing:-4px;
+  }
+
+  .hero-credit{
+    display:none;
+  }
+
+  .section{
+    padding:80px 6vw;
+  }
+
+  .intro-grid,
+  .lorenzo-grid{
+    grid-template-columns:1fr;
+    gap:45px;
+  }
+
+  .work-grid{
+    grid-template-columns:1fr;
+  }
+
+  .work-card.large{
+    grid-column:auto;
+  }
+
+  .service{
+    grid-template-columns:40px 1fr;
+  }
+
+  .service p{
+    grid-column:2;
+  }
+
+  .workflow-grid{
+    grid-template-columns:1fr;
+  }
+
+  .step,
+  .step:last-child{
+    border-right:0;
+    border-left:1px solid #242424;
+    border-bottom:1px solid #242424;
+  }
+
+  .step{
+    min-height:220px;
+  }
+
+  .step h3{
+    margin-top:55px;
+  }
+
+  .portrait-placeholder{
+    min-height:420px;
+  }
+
+  footer{
+    flex-direction:column;
+  }
+}
+
+</style>
 </head>
 
 <body>
 
-  <section class="hero">
+<header>
 
-    <div class="small">
+  <div class="brand">
+    BLACK MOOD STUDIO
+  </div>
+
+  <div class="language">
+    <button id="itBtn" class="active">IT</button>
+    <span>|</span>
+    <button id="enBtn">EN</button>
+  </div>
+
+</header>
+
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="label">
       BLACK MOOD STUDIO PRESENTS
     </div>
 
     <h1>
-      SOUND<br>
-      <span class="red">DESIGN</span>
+      SOUND
+      <span>DESIGN</span>
     </h1>
 
     <div class="tagline">
       YOUR IMAGES. OUR SOUND.
     </div>
 
-    <div class="services">
+    <div class="hero-services">
       SOUND DESIGN · AUDIO REDESIGN · AUDIO POST PRODUCTION
     </div>
 
-    <div class="bottom">
-      Sound Design by Lorenzo Sesini
+    <div class="hero-actions">
+
+      <a class="button primary" href="#works"
+         data-it="GUARDA I LAVORI ↓"
+         data-en="VIEW OUR WORK ↓">
+         GUARDA I LAVORI ↓
+      </a>
+
+      <a class="button" href="#contact"
+         data-it="PARLACI DEL TUO PROGETTO"
+         data-en="START A PROJECT">
+         PARLACI DEL TUO PROGETTO
+      </a>
+
     </div>
 
-  </section>
+  </div>
+
+  <div class="hero-credit">
+    Sound Design by Lorenzo Sesini
+  </div>
+
+</section>
+
+
+<section class="section intro">
+
+  <div class="intro-grid reveal">
+
+    <div>
+      <div class="label">SOUND MATTERS</div>
+
+      <h2>
+        MAKE<br>
+        THEM<br>
+        FEEL IT.
+      </h2>
+    </div>
+
+    <div class="intro-text"
+         data-it="Creiamo identità sonore capaci di trasformare immagini, movimento e narrazione in un'esperienza. Dal singolo dettaglio al mix finale."
+         data-en="We create sonic identities that turn images, movement and storytelling into an experience. From the smallest detail to the final mix.">
+
+      Creiamo identità sonore capaci di trasformare immagini,
+      movimento e narrazione in un'esperienza.
+      Dal singolo dettaglio al mix finale.
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section works" id="works">
+
+  <div class="section-title reveal">
+
+    <div>
+      <div class="label">PORTFOLIO</div>
+      <h2>SELECTED<br>WORKS</h2>
+    </div>
+
+    <div class="sound-on">
+      TURN THE SOUND ON ↗
+    </div>
+
+  </div>
+
+
+  <div class="work-grid">
+
+    <div class="work-card large reveal">
+      <div class="work-bg"></div>
+      <div class="work-number">01</div>
+
+      <div class="work-info">
+        <div class="work-category">AUTOMOTIVE · AUDIO REDESIGN</div>
+        <h3>FERRARI</h3>
+
+        <div class="work-note"
+             data-it="Audio redesign indipendente realizzato a scopo portfolio. Non commissionato né affiliato al brand originale."
+             data-en="Independent audio redesign created for portfolio purposes. Not commissioned by or affiliated with the original brand.">
+
+          Audio redesign indipendente realizzato a scopo portfolio.
+          Non commissionato né affiliato al brand originale.
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="work-card reveal">
+      <div class="work-bg"></div>
+      <div class="work-number">02</div>
+
+      <div class="work-info">
+        <div class="work-category">ADVERTISING · AUDIO REDESIGN</div>
+        <h3>NIKE</h3>
+
+        <div class="work-note"
+             data-it="Progetto indipendente realizzato a scopo portfolio. Non commissionato né affiliato al brand."
+             data-en="Independent project created for portfolio purposes. Not commissioned by or affiliated with the brand.">
+
+          Progetto indipendente realizzato a scopo portfolio.
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="work-card reveal">
+      <div class="work-bg"></div>
+      <div class="work-number">03</div>
+
+      <div class="work-info">
+        <div class="work-category">AUTOMOTIVE · AUDIO REDESIGN</div>
+        <h3>MUSTANG</h3>
+
+        <div class="work-note"
+             data-it="Progetto indipendente realizzato a scopo portfolio. Non commissionato né affiliato al brand."
+             data-en="Independent project created for portfolio purposes. Not commissioned by or affiliated with the brand.">
+
+          Progetto indipendente realizzato a scopo portfolio.
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="work-card reveal">
+      <div class="work-bg"></div>
+      <div class="work-number">04</div>
+
+      <div class="work-info">
+        <div class="work-category">MUSIC & ENTERTAINMENT · AUDIO REDESIGN</div>
+        <h3>MARRACASH</h3>
+
+        <div class="work-note"
+             data-it="Progetto indipendente realizzato a scopo portfolio. Non commissionato né affiliato all'artista."
+             data-en="Independent project created for portfolio purposes. Not commissioned by or affiliated with the artist.">
+
+          Progetto indipendente realizzato a scopo portfolio.
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="work-card reveal">
+      <div class="work-bg"></div>
+      <div class="work-number">05</div>
+
+      <div class="work-info">
+        <div class="work-category">GAMING · AUDIO REDESIGN</div>
+        <h3>GAME AUDIO</h3>
+
+        <div class="work-note"
+             data-it="Audio redesign indipendente realizzato a scopo portfolio. Non commissionato dagli autori del contenuto originale."
+             data-en="Independent audio redesign created for portfolio purposes. Not commissioned by the creators of the original content.">
+
+          Audio redesign indipendente realizzato a scopo portfolio.
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="work-card reveal">
+      <div class="work-bg"></div>
+      <div class="work-number">06</div>
+
+      <div class="work-info">
+        <div class="work-category">3D & MOTION · SOUND DESIGN</div>
+        <h3>ABSTRACT</h3>
+      </div>
+    </div>
+
+
+    <div class="work-card reveal">
+      <div class="work-bg"></div>
+      <div class="work-number">07</div>
+
+      <div class="work-info">
+        <div class="work-category">ORIGINAL SOUND DESIGN</div>
+        <h3>EXPLOSION</h3>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="label reveal">WHAT WE DO</div>
+
+  <div class="services-grid">
+
+    <div class="service reveal">
+      <div class="service-number">01</div>
+      <h3>Sound Design</h3>
+      <p data-it="Creazione completa dell'identità sonora di immagini e contenuti."
+         data-en="Complete creation of the sonic identity for images and visual content.">
+         Creazione completa dell'identità sonora di immagini e contenuti.
+      </p>
+    </div>
+
+    <div class="service reveal">
+      <div class="service-number">02</div>
+      <h3>Audio Redesign</h3>
+      <p data-it="Ricostruzione e reinterpretazione della componente sonora di contenuti esistenti."
+         data-en="Reconstruction and reinterpretation of the sound of existing content.">
+         Ricostruzione e reinterpretazione della componente sonora di contenuti esistenti.
+      </p>
+    </div>
+
+    <div class="service reveal">
+      <div class="service-number">03</div>
+      <h3>Advertising</h3>
+      <p data-it="Audio per spot, branded content, campagne e video prodotto."
+         data-en="Audio for commercials, branded content, campaigns and product videos.">
+         Audio per spot, branded content, campagne e video prodotto.
+      </p>
+    </div>
+
+    <div class="service reveal">
+      <div class="service-number">04</div>
+      <h3>Automotive</h3>
+      <p data-it="Motori, movimento, ambienti, impatti e costruzione narrativa del suono."
+         data-en="Engines, movement, environments, impacts and sonic storytelling.">
+         Motori, movimento, ambienti, impatti e costruzione narrativa del suono.
+      </p>
+    </div>
+
+    <div class="service reveal">
+      <div class="service-number">05</div>
+      <h3>Gaming</h3>
+      <p data-it="Gameplay, ambienti, azioni, interazioni ed effetti."
+         data-en="Gameplay, environments, actions, interactions and effects.">
+         Gameplay, ambienti, azioni, interazioni ed effetti.
+      </p>
+    </div>
+
+    <div class="service reveal">
+      <div class="service-number">06</div>
+      <h3>Motion & 3D</h3>
+      <p data-it="Sound design sincronizzato a motion graphics, animazioni e visual."
+         data-en="Sound design synchronized with motion graphics, animations and visuals.">
+         Sound design sincronizzato a motion graphics, animazioni e visual.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section before-after">
+
+  <div class="reveal">
+
+    <div class="label">BEFORE / AFTER</div>
+
+    <div class="ba-title">
+      HEAR THE<br>
+      DIFFERENCE.
+    </div>
+
+    <div class="ba-box">
+      <span>
+        BEFORE / AFTER PLAYER — COMING NEXT
+      </span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section lorenzo">
+
+  <div class="lorenzo-grid">
+
+    <div class="portrait-placeholder reveal"></div>
+
+    <div class="reveal">
+
+      <div class="label">SOUND DESIGNER</div>
+
+      <h2>
+        LORENZO<br>
+        SESINI
+      </h2>
+
+      <div class="role">
+        BLACK MOOD STUDIO · SOUND DESIGN
+      </div>
+
+      <div class="bio"
+           data-it="Sound Designer della divisione Sound Design di Black Mood Studio. Cura la progettazione, la realizzazione e la finalizzazione dell'identità sonora dei progetti, dal concept al mix finale."
+           data-en="Sound Designer for Black Mood Studio's Sound Design division. He oversees the creation and development of each project's sonic identity, from the initial concept to the final mix.">
+
+        Sound Designer della divisione Sound Design di Black Mood Studio.
+        Cura la progettazione, la realizzazione e la finalizzazione
+        dell'identità sonora dei progetti, dal concept al mix finale.
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section workflow">
+
+  <div class="label reveal">OUR PROCESS</div>
+
+  <div class="workflow-grid">
+
+    <div class="step reveal">
+      <div class="step-number">01</div>
+      <h3>Brief</h3>
+      <p data-it="Riceviamo il materiale e definiamo obiettivi, riferimenti e direzione."
+         data-en="We receive the material and define objectives, references and direction.">
+         Riceviamo il materiale e definiamo obiettivi, riferimenti e direzione.
+      </p>
+    </div>
+
+    <div class="step reveal">
+      <div class="step-number">02</div>
+      <h3>Sound Concept</h3>
+      <p data-it="Costruiamo l'identità sonora e il linguaggio del progetto."
+         data-en="We define the sonic identity and language of the project.">
+         Costruiamo l'identità sonora e il linguaggio del progetto.
+      </p>
+    </div>
+
+    <div class="step reveal">
+      <div class="step-number">03</div>
+      <h3>Production</h3>
+      <p data-it="Sound design, editing, registrazione, layering e post produzione."
+         data-en="Sound design, editing, recording, layering and post production.">
+         Sound design, editing, registrazione, layering e post produzione.
+      </p>
+    </div>
+
+    <div class="step reveal">
+      <div class="step-number">04</div>
+      <h3>Mix & Delivery</h3>
+      <p data-it="Finalizzazione e consegna nei formati richiesti dal progetto."
+         data-en="Finalization and delivery in the formats required by the project.">
+         Finalizzazione e consegna nei formati richiesti dal progetto.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section contact" id="contact">
+
+  <div class="reveal">
+
+    <div class="label"
+         data-it="HAI UN PROGETTO?"
+         data-en="HAVE A PROJECT?">
+         HAI UN PROGETTO?
+    </div>
+
+    <h2>
+      YOUR IMAGES.
+      <span>OUR SOUND.</span>
+    </h2>
+
+    <div class="contact-text"
+         data-it="Raccontaci cosa stai creando. Pensiamo insieme a come dovrebbe suonare."
+         data-en="Tell us what you're creating. Let's find out how it should sound.">
+
+      Raccontaci cosa stai creando.
+      Pensiamo insieme a come dovrebbe suonare.
+
+    </div>
+
+    <a class="button primary"
+       href="mailto:servizi@blackmoodstudio.com"
+       data-it="PARLIAMONE →"
+       data-en="START A PROJECT →">
+
+       PARLIAMONE →
+
+    </a>
+
+  </div>
+
+</section>
+
+
+<footer>
+
+  <div>
+    BLACK MOOD STUDIO © 2026
+  </div>
+
+  <div>
+    SOUND DESIGN BY LORENZO SESINI
+  </div>
+
+</footer>
+
+
+<script>
+
+/* LANGUAGE */
+
+const itBtn = document.getElementById("itBtn");
+const enBtn = document.getElementById("enBtn");
+
+function setLanguage(lang){
+
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll("[data-it]").forEach(el=>{
+    el.textContent = el.getAttribute("data-"+lang);
+  });
+
+  if(lang === "it"){
+    itBtn.classList.add("active");
+    enBtn.classList.remove("active");
+  }else{
+    enBtn.classList.add("active");
+    itBtn.classList.remove("active");
+  }
+
+}
+
+itBtn.addEventListener("click",()=>setLanguage("it"));
+enBtn.addEventListener("click",()=>setLanguage("en"));
+
+
+/* SCROLL REVEAL */
+
+const observer = new IntersectionObserver(entries=>{
+
+  entries.forEach(entry=>{
+
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+    }
+
+  });
+
+},{
+  threshold:.12
+});
+
+document.querySelectorAll(".reveal").forEach(el=>{
+  observer.observe(el);
+});
+
+</script>
 
 </body>
 </html>
